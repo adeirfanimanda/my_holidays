@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:my_holidays/theme.dart';
 
 class SplashPage extends StatefulWidget {
+  const SplashPage({Key key}) : super(key: key);
+
   @override
   State<SplashPage> createState() => _SplashPageState();
 }
@@ -11,14 +13,12 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    // TODO: implement initState
-
-    Timer(
-      Duration(seconds: 3),
-      () => Navigator.pushNamed(context, '/sign-in'),
-    );
-
     super.initState();
+
+    Timer(const Duration(seconds: 2), () {
+      Navigator.pushNamedAndRemoveUntil(
+          context, '/onboarding', (route) => false);
+    });
   }
 
   @override
@@ -29,7 +29,7 @@ class _SplashPageState extends State<SplashPage> {
         child: Container(
           width: 130,
           height: 150,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
                 'assets/image_splash.png',

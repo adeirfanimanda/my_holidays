@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_holidays/theme.dart';
 
 class ToursTile extends StatelessWidget {
+  const ToursTile({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +23,7 @@ class ToursTile extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 12,
           ),
           Expanded(
@@ -34,7 +36,7 @@ class ToursTile extends StatelessWidget {
                     fontSize: 12,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 6,
                 ),
                 Text(
@@ -44,7 +46,7 @@ class ToursTile extends StatelessWidget {
                     fontWeight: semiBold,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 6,
                 ),
                 Text(
