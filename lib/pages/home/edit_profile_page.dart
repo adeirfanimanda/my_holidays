@@ -39,24 +39,29 @@ class EditProfilePage extends StatelessWidget {
         margin: const EdgeInsets.only(
           top: 30,
         ),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(
-            'Name',
-            style: secondaryTextStyle.copyWith(
-              fontSize: 13,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Name',
+              style: secondaryTextStyle.copyWith(
+                fontSize: 13,
+              ),
             ),
-          ),
-          TextFormField(
-            style: primaryTextStyle,
-            decoration: InputDecoration(
+            TextFormField(
+              style: primaryTextStyle,
+              decoration: InputDecoration(
                 hintText: 'Ade Irfan Imanda',
                 hintStyle: primaryTextStyle,
                 enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                  color: subtitleColor,
-                ))),
-          )
-        ]),
+                  borderSide: BorderSide(
+                    color: subtitleColor,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       );
     }
 
@@ -65,24 +70,29 @@ class EditProfilePage extends StatelessWidget {
         margin: const EdgeInsets.only(
           top: 30,
         ),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(
-            'Username',
-            style: secondaryTextStyle.copyWith(
-              fontSize: 13,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Username',
+              style: secondaryTextStyle.copyWith(
+                fontSize: 13,
+              ),
             ),
-          ),
-          TextFormField(
-            style: primaryTextStyle,
-            decoration: InputDecoration(
+            TextFormField(
+              style: primaryTextStyle,
+              decoration: InputDecoration(
                 hintText: '@adeirfanimanda',
                 hintStyle: primaryTextStyle,
                 enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                  color: subtitleColor,
-                ))),
-          )
-        ]),
+                  borderSide: BorderSide(
+                    color: subtitleColor,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       );
     }
 
@@ -91,26 +101,29 @@ class EditProfilePage extends StatelessWidget {
         margin: const EdgeInsets.only(
           top: 30,
         ),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(
-            'Email Address',
-            style: secondaryTextStyle.copyWith(
-              fontSize: 13,
-            ),
-          ),
-          TextFormField(
-            style: primaryTextStyle,
-            decoration: InputDecoration(
-              hintText: 'adeheaven09@gmail.com',
-              hintStyle: primaryTextStyle,
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: subtitleColor,
-                ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Email Address',
+              style: secondaryTextStyle.copyWith(
+                fontSize: 13,
               ),
             ),
-          )
-        ]),
+            TextFormField(
+              style: primaryTextStyle,
+              decoration: InputDecoration(
+                hintText: 'adeheaven09@gmail.com',
+                hintStyle: primaryTextStyle,
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                    color: subtitleColor,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       );
     }
 
