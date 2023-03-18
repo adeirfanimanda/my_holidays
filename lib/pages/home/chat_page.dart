@@ -3,6 +3,8 @@ import 'package:my_holidays/theme.dart';
 import 'package:my_holidays/widgets/chat_tile.dart';
 
 class ChatPage extends StatelessWidget {
+  const ChatPage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Widget header() {
@@ -33,7 +35,7 @@ class ChatPage extends StatelessWidget {
                 'assets/icon_headset.png',
                 width: 80,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
@@ -43,22 +45,22 @@ class ChatPage extends StatelessWidget {
                   fontWeight: medium,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               Text(
                 'You have never done a booking',
                 style: secondaryTextStyle,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
-              Container(
+              SizedBox(
                 height: 44,
                 child: TextButton(
                   onPressed: () {},
                   style: TextButton.styleFrom(
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       horizontal: 24,
                       vertical: 10,
                     ),
@@ -91,7 +93,7 @@ class ChatPage extends StatelessWidget {
             padding: EdgeInsets.symmetric(
               horizontal: defaultMargin,
             ),
-            children: [
+            children: const [
               ChatTile(),
             ],
           ),

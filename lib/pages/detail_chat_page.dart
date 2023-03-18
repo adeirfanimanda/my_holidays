@@ -9,7 +9,7 @@ class DetailChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget header() {
       return PreferredSize(
-        preferredSize: Size.fromHeight(70),
+        preferredSize: const Size.fromHeight(70),
         child: AppBar(
           backgroundColor: backgroundColor1,
           centerTitle: false,
@@ -19,7 +19,7 @@ class DetailChatPage extends StatelessWidget {
                 'assets/image_shop_logo_online.png',
                 width: 50,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 12,
               ),
               Column(
@@ -154,7 +154,7 @@ class DetailChatPage extends StatelessWidget {
         padding: EdgeInsets.symmetric(
           horizontal: defaultMargin,
         ),
-        children: [
+        children: const [
           ChatBubble(
             isSender: true,
             text: 'Apakah tiket wisata ini masih tersedia?',

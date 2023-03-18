@@ -7,7 +7,7 @@ import 'package:my_holidays/pages/sign_up_page.dart';
 import 'package:my_holidays/pages/splash_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,11 +19,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => const SplashPage(),
-        '/onboarding': (context) => OnboardingPage(),
-        '/sign-in': (context) => SignInPage(),
-        '/sign-up': (context) => SignUpPage(),
+        '/onboarding': (context) => const OnboardingPage(),
+        '/sign-in': (context) => const SignInPage(),
+        '/sign-up': (context) => const SignUpPage(),
         '/home': (context) => MainPage(),
-        '/detail-chat': (context) => DetailChatPage(),
+        '/detail-chat': (context) => const DetailChatPage(),
       },
     );
   }
