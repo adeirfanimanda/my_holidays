@@ -20,7 +20,7 @@ class ProfilePage extends StatelessWidget {
               children: [
                 ClipOval(
                   child: Image.asset(
-                    'assets/image_profile.png',
+                    'assets/image_ade.jpg',
                     width: 64,
                   ),
                 ),
@@ -39,20 +39,13 @@ class ProfilePage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '@Ade',
+                        '@adeirfanimanda',
                         style: subtitleTextStyle.copyWith(
                           fontSize: 16,
                         ),
                       )
                     ],
                   ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamedAndRemoveUntil(
-                        context, '/sign-in', (route) => false);
-                  },
-                  child: Image.asset('assets/button_exit.png', width: 20),
                 ),
               ],
             ),
@@ -139,8 +132,14 @@ class ProfilePage extends StatelessWidget {
               menuItem(
                 'Rate App',
               ),
-              menuItem(
-                'Logout',
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/sign-in', (route) => false);
+                },
+                child: menuItem(
+                  'Logout',
+                ),
               ),
             ],
           ),

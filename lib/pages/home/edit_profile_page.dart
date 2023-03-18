@@ -26,7 +26,9 @@ class EditProfilePage extends StatelessWidget {
               Icons.check,
               color: primaryColor,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
         ],
       );
@@ -47,7 +49,7 @@ class EditProfilePage extends StatelessWidget {
           TextFormField(
             style: primaryTextStyle,
             decoration: InputDecoration(
-                hintText: 'Ade',
+                hintText: 'Ade Irfan Imanda',
                 hintStyle: primaryTextStyle,
                 enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
@@ -73,7 +75,7 @@ class EditProfilePage extends StatelessWidget {
           TextFormField(
             style: primaryTextStyle,
             decoration: InputDecoration(
-                hintText: '@Ade',
+                hintText: '@adeirfanimanda',
                 hintStyle: primaryTextStyle,
                 enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
@@ -99,12 +101,14 @@ class EditProfilePage extends StatelessWidget {
           TextFormField(
             style: primaryTextStyle,
             decoration: InputDecoration(
-                hintText: 'Ade@gmail.com',
-                hintStyle: primaryTextStyle,
-                enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
+              hintText: 'adeheaven09@gmail.com',
+              hintStyle: primaryTextStyle,
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
                   color: subtitleColor,
-                ))),
+                ),
+              ),
+            ),
           )
         ]),
       );
@@ -124,11 +128,13 @@ class EditProfilePage extends StatelessWidget {
               height: 100,
               margin: EdgeInsets.only(top: defaultMargin),
               decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      image: AssetImage(
-                    'assets/image_profile.png',
-                  ))),
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage(
+                    'assets/image_ade.jpg',
+                  ),
+                ),
+              ),
             ),
             nameInput(),
             usernameInput(),
