@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_holidays/pages/detail_chat_page.dart';
+import 'package:my_holidays/pages/home/edit_profile_page.dart';
 import 'package:my_holidays/pages/home/main_page.dart';
 import 'package:my_holidays/pages/onboarding_page.dart';
 import 'package:my_holidays/pages/sign_in_page.dart';
@@ -22,8 +23,9 @@ class MyApp extends StatelessWidget {
         '/onboarding': (context) => const OnboardingPage(),
         '/sign-in': (context) => const SignInPage(),
         '/sign-up': (context) => const SignUpPage(),
-        '/home': (context) => MainPage(),
+        '/home': (context) => const MainPage(),
         '/detail-chat': (context) => const DetailChatPage(),
+        '/edit-profile': (context) => const EditProfilePage(),
       },
     );
   }
