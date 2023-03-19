@@ -5,13 +5,13 @@ import 'package:my_holidays/theme.dart';
 class ChatBubble extends StatelessWidget {
   final String text;
   final bool isSender;
-  final bool hasTicket;
+  final bool hasTours;
 
   const ChatBubble({
     Key key,
     this.isSender = false,
     this.text = '',
-    this.hasTicket = false,
+    this.hasTours = false,
   }) : super(key: key);
 
   @override
@@ -121,7 +121,7 @@ class ChatBubble extends StatelessWidget {
         crossAxisAlignment:
             isSender ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
-          hasTicket ? toursPreview() : const SizedBox(),
+          hasTours ? toursPreview() : const SizedBox(),
           Row(
             mainAxisAlignment:
                 isSender ? MainAxisAlignment.end : MainAxisAlignment.start,

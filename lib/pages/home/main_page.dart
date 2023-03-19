@@ -129,7 +129,7 @@ class _MainPageState extends State<MainPage> {
           return WishlistPage();
           break;
         case 3:
-          return ProfilePage();
+          return const ProfilePage();
           break;
 
         default:

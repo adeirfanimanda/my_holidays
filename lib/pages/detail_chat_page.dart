@@ -158,7 +158,7 @@ class DetailChatPage extends StatelessWidget {
           ChatBubble(
             isSender: true,
             text: 'Apakah tiket wisata ini masih tersedia?',
-            hasTicket: true,
+            hasTours: true,
           ),
           ChatBubble(
             isSender: false,

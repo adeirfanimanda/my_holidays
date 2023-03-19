@@ -6,6 +6,7 @@ import 'package:my_holidays/pages/onboarding_page.dart';
 import 'package:my_holidays/pages/sign_in_page.dart';
 import 'package:my_holidays/pages/sign_up_page.dart';
 import 'package:my_holidays/pages/splash_page.dart';
+import 'package:my_holidays/pages/tours_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const MainPage(),
         '/detail-chat': (context) => const DetailChatPage(),
         '/edit-profile': (context) => const EditProfilePage(),
+        '/tours': (context) => ToursPage(),
       },
     );
   }
