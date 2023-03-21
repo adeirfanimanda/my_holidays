@@ -162,7 +162,8 @@ class DetailChatPage extends StatelessWidget {
           ),
           ChatBubble(
             isSender: false,
-            text: 'Untuk tiket wisata Hutan Karangsong masih tersedia ya kak',
+            text:
+                'Untuk tiket wisata Hutan Mangrove Karangsong masih tersedia ya kak',
           ),
         ],
       );

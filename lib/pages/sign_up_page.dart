@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:my_holidays/theme.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({Key key}) : super(key: key);
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -227,7 +234,7 @@ class SignUpPage extends StatelessWidget {
                     ),
                     Expanded(
                       child: TextFormField(
-                        obscureText: true,
+                        obscureText: _obscureText,
                         style: primaryTextStyle,
                         decoration: InputDecoration.collapsed(
                           hintText: 'Your Password',
@@ -235,6 +242,17 @@ class SignUpPage extends StatelessWidget {
                         ),
                       ),
                     ),
+                    IconButton(
+                      onPressed: () {
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
+                      },
+                      icon: Icon(
+                        _obscureText ? Icons.visibility_off : Icons.visibility,
+                        color: primaryColor,
+                      ),
+                    )
                   ],
                 ),
               ),

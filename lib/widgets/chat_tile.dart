@@ -34,7 +34,7 @@ class ChatTile extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Untuk tiket wisata Hutan Karangsong masih tersedia ya kak',
+                        'Untuk tiket wisata Hutan Mangrove Karangsong masih tersedia ya kak',
                         style: secondaryTextStyle.copyWith(
                           fontWeight: light,
                         ),

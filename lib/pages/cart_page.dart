@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_holidays/theme.dart';
+import 'package:my_holidays/widgets/cart_card.dart';
 
 class CartPage extends StatelessWidget {
   @override
@@ -8,8 +9,8 @@ class CartPage extends StatelessWidget {
       return AppBar(
         backgroundColor: backgroundColor1,
         centerTitle: true,
-        title: Text(
-          'Your Cart',
+        title: const Text(
+          'Your Booking',
         ),
         elevation: 0,
       );
@@ -24,7 +25,7 @@ class CartPage extends StatelessWidget {
               'assets/icon_empty_cart.png',
               width: 80,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
@@ -34,7 +35,7 @@ class CartPage extends StatelessWidget {
                 fontWeight: medium,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
@@ -44,7 +45,7 @@ class CartPage extends StatelessWidget {
             Container(
               width: 154,
               height: 44,
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 top: 20,
               ),
               child: TextButton(
@@ -72,10 +73,22 @@ class CartPage extends StatelessWidget {
       );
     }
 
+    Widget content() {
+      return ListView(
+        padding: EdgeInsets.symmetric(
+          horizontal: defaultMargin,
+        ),
+        children: [
+          CartCard(),
+        ],
+      );
+    }
+
     return Scaffold(
       backgroundColor: backgroundColor3,
       appBar: header(),
-      body: emptyCart(),
+      // body: emptyCart(),
+      body: content(),
     );
   }
 }

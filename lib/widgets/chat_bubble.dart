@@ -51,7 +51,7 @@ class ChatBubble extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'HUTANG MANGROVE',
+                        'HUTAN MANGROVE KARANGSONG',
                         style: primaryTextStyle,
                       ),
                       const SizedBox(
@@ -100,7 +100,7 @@ class ChatBubble extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    'Buy Now',
+                    'Book Now',
                     style: GoogleFonts.poppins(
                       color: backgroundColor5,
                       fontWeight: medium,
