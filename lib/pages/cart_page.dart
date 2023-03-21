@@ -3,6 +3,8 @@ import 'package:my_holidays/theme.dart';
 import 'package:my_holidays/widgets/cart_card.dart';
 
 class CartPage extends StatelessWidget {
+  const CartPage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Widget header() {
@@ -78,9 +80,84 @@ class CartPage extends StatelessWidget {
         padding: EdgeInsets.symmetric(
           horizontal: defaultMargin,
         ),
-        children: [
+        children: const [
           CartCard(),
         ],
+      );
+    }
+
+    Widget customBottomNav() {
+      return SizedBox(
+        height: 180,
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: defaultMargin,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Subtotal',
+                    style: primaryTextStyle,
+                  ),
+                  Text(
+                    'Rp100.000',
+                    style: priceTextStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: semiBold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Divider(
+              thickness: 0.3,
+              color: subtitleColor,
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Container(
+              height: 50,
+              margin: EdgeInsets.symmetric(
+                horizontal: defaultMargin,
+              ),
+              child: TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(
+                  backgroundColor: primaryColor,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Continue to Booking',
+                      style: primaryTextStyle.copyWith(
+                        fontSize: 16,
+                        fontWeight: semiBold,
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_forward,
+                      color: primaryTextColor,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       );
     }
 
@@ -89,6 +166,7 @@ class CartPage extends StatelessWidget {
       appBar: header(),
       // body: emptyCart(),
       body: content(),
+      bottomNavigationBar: customBottomNav(),
     );
   }
 }
