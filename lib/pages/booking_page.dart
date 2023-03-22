@@ -12,7 +12,7 @@ class BookingPage extends StatelessWidget {
         backgroundColor: backgroundColor1,
         elevation: 0,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Booking Details',
         ),
       );
@@ -39,10 +39,13 @@ class BookingPage extends StatelessWidget {
                     fontWeight: medium,
                   ),
                 ),
-                BookingCard(),
-                BookingCard(),
+                const BookingCard(),
               ],
             ),
+          ),
+
+          const SizedBox(
+            height: 12,
           ),
 
           // choosen holiday date
@@ -94,6 +97,149 @@ class BookingPage extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+          ),
+
+          // payment summary
+          Container(
+            margin: EdgeInsets.only(
+              top: defaultMargin,
+            ),
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: backgroundColor4,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Payment Summary',
+                  style: primaryTextStyle.copyWith(
+                    fontSize: 16,
+                    fontWeight: medium,
+                  ),
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Ticket Quantity',
+                      style: secondaryTextStyle.copyWith(
+                        fontSize: 12,
+                      ),
+                    ),
+                    Text(
+                      '2 Items',
+                      style: primaryTextStyle.copyWith(
+                        fontWeight: medium,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Ticket Price',
+                      style: secondaryTextStyle.copyWith(
+                        fontSize: 12,
+                      ),
+                    ),
+                    Text(
+                      'Rp200.000',
+                      style: primaryTextStyle.copyWith(
+                        fontWeight: medium,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Fee',
+                      style: secondaryTextStyle.copyWith(
+                        fontSize: 12,
+                      ),
+                    ),
+                    Text(
+                      'Free',
+                      style: primaryTextStyle.copyWith(
+                        fontWeight: medium,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                const Divider(
+                  thickness: 1,
+                  color: Color(0xff2E3141),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Total',
+                      style: priceTextStyle.copyWith(
+                        fontWeight: semiBold,
+                      ),
+                    ),
+                    Text(
+                      'Rp200.000',
+                      style: priceTextStyle.copyWith(
+                        fontWeight: semiBold,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+
+          // booking button
+          SizedBox(
+            height: defaultMargin,
+          ),
+          const Divider(
+            thickness: 1,
+            color: Color(0xff2E3141),
+          ),
+          Container(
+            height: 50,
+            width: double.infinity,
+            margin: EdgeInsets.symmetric(
+              vertical: defaultMargin,
+            ),
+            child: TextButton(
+              onPressed: () {},
+              style: TextButton.styleFrom(
+                backgroundColor: primaryColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: Text(
+                'Booking Now',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: semiBold,
+                ),
+              ),
             ),
           ),
         ],
