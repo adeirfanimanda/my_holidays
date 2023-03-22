@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_holidays/pages/booking_page.dart';
 import 'package:my_holidays/pages/cart_page.dart';
 import 'package:my_holidays/pages/detail_chat_page.dart';
 import 'package:my_holidays/pages/home/edit_profile_page.dart';
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
         '/detail-chat': (context) => const DetailChatPage(),
         '/edit-profile': (context) => const EditProfilePage(),
         '/tours': (context) => ToursPage(),
-        '/cart': (context) => CartPage(),
+        '/cart': (context) => const CartPage(),
+        '/booking': (context) => const BookingPage(),
       },
     );
   }
