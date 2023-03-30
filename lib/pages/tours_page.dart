@@ -9,9 +9,9 @@ class ToursPage extends StatefulWidget {
 
 class _ToursPageState extends State<ToursPage> {
   List images = [
-    'assets/image_shoes.png',
-    'assets/image_shoes.png',
-    'assets/image_shoes.png',
+    'assets/image_forest.jpeg',
+    'assets/image_forest.jpeg',
+    'assets/image_forest.jpeg',
   ];
 
   List familiarTours = [
@@ -231,7 +231,7 @@ class _ToursPageState extends State<ToursPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'HUTANG MANGROVE KARANGSONG',
+                          'HUTAN MANGROVE KARANGSONG',
                           style: primaryTextStyle.copyWith(
                             fontSize: 18,
                             fontWeight: semiBold,
