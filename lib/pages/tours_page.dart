@@ -142,28 +142,31 @@ class _ToursPageState extends State<ToursPage> {
 
       return Column(
         children: [
-          Container(
-            margin: EdgeInsets.only(
-              top: 20,
-              left: defaultMargin,
-              right: defaultMargin,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Icon(
-                    Icons.chevron_left,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              margin: EdgeInsets.only(
+                top: 20,
+                left: defaultMargin,
+                right: defaultMargin,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Icon(
+                      Icons.chevron_left,
+                    ),
                   ),
-                ),
-                Icon(
-                  Icons.shopping_bag,
-                  color: backgroundColor1,
-                ),
-              ],
+                  Icon(
+                    Icons.shopping_bag,
+                    color: backgroundColor1,
+                  ),
+                ],
+              ),
             ),
           ),
           CarouselSlider(
