@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:my_holidays/theme.dart';
+import 'package:provider/provider.dart';
+
+import '../../models/user_model.dart';
+import '../../providers/auth_provider.dart';
 
 class EditProfilePage extends StatelessWidget {
   const EditProfilePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
+
     Widget header() {
       return AppBar(
         leading: IconButton(
@@ -51,7 +58,7 @@ class EditProfilePage extends StatelessWidget {
             TextFormField(
               style: primaryTextStyle,
               decoration: InputDecoration(
-                hintText: 'Ade Irfan Imanda',
+                hintText: user.name,
                 hintStyle: primaryTextStyle,
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
@@ -82,7 +89,7 @@ class EditProfilePage extends StatelessWidget {
             TextFormField(
               style: primaryTextStyle,
               decoration: InputDecoration(
-                hintText: 'adeirfanimanda',
+                hintText: user.username,
                 hintStyle: primaryTextStyle,
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
@@ -113,7 +120,7 @@ class EditProfilePage extends StatelessWidget {
             TextFormField(
               style: primaryTextStyle,
               decoration: InputDecoration(
-                hintText: 'adeheaven09@gmail.com',
+                hintText: user.email,
                 hintStyle: primaryTextStyle,
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(

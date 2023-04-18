@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:my_holidays/models/user_model.dart';
+import 'package:my_holidays/providers/auth_provider.dart';
 import 'package:my_holidays/theme.dart';
 import 'package:my_holidays/widgets/tours_card.dart';
 import 'package:my_holidays/widgets/tours_tile.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
+
     Widget header() {
       return Container(
         margin: EdgeInsets.only(
@@ -22,14 +28,14 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Hello, Ade',
+                    'Hello, ${user.name}',
                     style: primaryTextStyle.copyWith(
                       fontSize: 24,
                       fontWeight: semiBold,
                     ),
                   ),
                   Text(
-                    '@adeirfanimanda',
+                    '@${user.username}',
                     style: subtitleTextStyle.copyWith(
                       fontSize: 16,
                     ),
