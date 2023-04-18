@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:my_holidays/providers/auth_provider.dart';
 import 'package:my_holidays/theme.dart';
+import 'package:my_holidays/widgets/loading_button.dart';
 import 'package:provider/provider.dart';
 
 class SignUpPage extends StatefulWidget {
+  const SignUpPage({Key key}) : super(key: key);
+
   @override
   State<SignUpPage> createState() => _SignUpPageState();
 }
 
 class _SignUpPageState extends State<SignUpPage> {
   bool _obscureText = true;
+  bool isLoading = false;
   TextEditingController nameController = TextEditingController(text: '');
   TextEditingController usernameController = TextEditingController(text: '');
   TextEditingController emailController = TextEditingController(text: '');
@@ -20,6 +24,10 @@ class _SignUpPageState extends State<SignUpPage> {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
 
     handleSignUp() async {
+      setState(() {
+        isLoading = true;
+      });
+
       if (await authProvider.register(
         name: nameController.text,
         username: usernameController.text,
@@ -27,7 +35,21 @@ class _SignUpPageState extends State<SignUpPage> {
         password: passwordController.text,
       )) {
         Navigator.pushNamed(context, '/home');
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: alertColor,
+            content: const Text(
+              'Gagal Register!',
+              textAlign: TextAlign.center,
+            ),
+          ),
+        );
       }
+
+      setState(() {
+        isLoading = false;
+      });
     }
 
     Widget header() {
@@ -352,7 +374,7 @@ class _SignUpPageState extends State<SignUpPage> {
               usernameInput(),
               emailInput(),
               passwordInput(),
-              signUpButton(),
+              isLoading ? LoadingButton() : signUpButton(),
               const Spacer(),
               footer()
             ],

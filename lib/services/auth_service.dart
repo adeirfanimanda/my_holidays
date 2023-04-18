@@ -4,7 +4,7 @@ import 'package:my_holidays/models/user_model.dart';
 import 'package:http/http.dart' as http;
 
 class AuthService {
-  String baseUrl = 'http://my-holidays-backend.test/api';
+  String baseUrl = 'http://192.168.56.1:8000/api';
 
   Future<UserModel> register({
     String name,
