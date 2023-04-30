@@ -226,7 +226,10 @@ class BookingPage extends StatelessWidget {
               vertical: defaultMargin,
             ),
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/booking-success', (route) => false);
+              },
               style: TextButton.styleFrom(
                 backgroundColor: primaryColor,
                 shape: RoundedRectangleBorder(
