@@ -11,6 +11,7 @@ import 'package:my_holidays/pages/sign_up_page.dart';
 import 'package:my_holidays/pages/splash_page.dart';
 import 'package:my_holidays/pages/tours_page.dart';
 import 'package:my_holidays/providers/auth_provider.dart';
+import 'package:my_holidays/providers/tour_provider.dart';
 import 'package:my_holidays/services/auth_service.dart';
 import 'package:provider/provider.dart';
 
@@ -28,6 +29,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => AuthProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => TourProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -39,7 +43,6 @@ class MyApp extends StatelessWidget {
           '/home': (context) => const MainPage(),
           '/detail-chat': (context) => const DetailChatPage(),
           '/edit-profile': (context) => const EditProfilePage(),
-          '/tours': (context) => ToursPage(),
           '/cart': (context) => const CartPage(),
           '/booking': (context) => const BookingPage(),
           '/booking-success': (context) => const BookingSuccessPage(),

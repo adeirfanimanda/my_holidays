@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:my_holidays/models/tour_model.dart';
+import 'package:my_holidays/pages/tours_page.dart';
 import 'package:my_holidays/theme.dart';
 
 class ToursTile extends StatelessWidget {
-  const ToursTile({Key key}) : super(key: key);
+  final TourModel tours;
+  ToursTile(this.tours);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/tours');
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ToursPage(tours),
+          ),
+        );
       },
       child: Container(
         margin: EdgeInsets.only(
@@ -35,7 +43,7 @@ class ToursTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Forest',
+                    tours.category.name,
                     style: secondaryTextStyle.copyWith(
                       fontSize: 12,
                     ),
@@ -44,17 +52,18 @@ class ToursTile extends StatelessWidget {
                     height: 6,
                   ),
                   Text(
-                    'Hutan Mangrove Karangsong',
+                    tours.name,
                     style: primaryTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: semiBold,
                     ),
+                    maxLines: 1,
                   ),
                   const SizedBox(
                     height: 6,
                   ),
                   Text(
-                    'Rp100.000',
+                    'Rp${tours.price}',
                     style: priceTextStyle.copyWith(
                       fontWeight: medium,
                     ),

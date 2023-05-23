@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_holidays/models/user_model.dart';
 import 'package:my_holidays/providers/auth_provider.dart';
+import 'package:my_holidays/providers/tour_provider.dart';
 import 'package:my_holidays/theme.dart';
 import 'package:my_holidays/widgets/tours_card.dart';
 import 'package:my_holidays/widgets/tours_tile.dart';
@@ -13,6 +14,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     UserModel user = authProvider.user;
+    TourProvider tourProvider = Provider.of<TourProvider>(context);
 
     Widget header() {
       return Container(
@@ -235,11 +237,11 @@ class HomePage extends StatelessWidget {
                 width: defaultMargin,
               ),
               Row(
-                children: const [
-                  ToursCard(),
-                  ToursCard(),
-                  ToursCard(),
-                ],
+                children: tourProvider.tours
+                    .map(
+                      (tours) => ToursCard(tours),
+                    )
+                    .toList(),
               ),
             ],
           ),
@@ -270,12 +272,11 @@ class HomePage extends StatelessWidget {
           top: 14,
         ),
         child: Column(
-          children: const [
-            ToursTile(),
-            ToursTile(),
-            ToursTile(),
-            ToursTile(),
-          ],
+          children: tourProvider.tours
+              .map(
+                (tours) => ToursTile(tours),
+              )
+              .toList(),
         ),
       );
     }

@@ -1,8 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:my_holidays/models/tour_model.dart';
 import 'package:my_holidays/theme.dart';
 
 class ToursPage extends StatefulWidget {
+  final TourModel tours;
+  ToursPage(this.tours);
+
   @override
   State<ToursPage> createState() => _ToursPageState();
 }
@@ -234,14 +238,14 @@ class _ToursPageState extends State<ToursPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'HUTAN MANGROVE KARANGSONG',
+                          widget.tours.name,
                           style: primaryTextStyle.copyWith(
                             fontSize: 18,
                             fontWeight: semiBold,
                           ),
                         ),
                         Text(
-                          'Forest',
+                          widget.tours.category.name,
                           style: secondaryTextStyle.copyWith(
                             fontSize: 12,
                           ),
@@ -308,7 +312,7 @@ class _ToursPageState extends State<ToursPage> {
                     style: primaryTextStyle,
                   ),
                   Text(
-                    'Rp100.000',
+                    'Rp${widget.tours.price}',
                     style: priceTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: semiBold,
@@ -339,7 +343,7 @@ class _ToursPageState extends State<ToursPage> {
                     height: 12,
                   ),
                   Text(
-                    'Unpaved trails and mixed surfaces are easy when you have the traction and support you need. Casual enough for the daily commute.',
+                    widget.tours.description,
                     style: subtitleTextStyle.copyWith(
                       fontWeight: light,
                     ),

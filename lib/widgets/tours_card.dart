@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:my_holidays/models/tour_model.dart';
+import 'package:my_holidays/pages/tours_page.dart';
 import 'package:my_holidays/theme.dart';
 
 class ToursCard extends StatelessWidget {
-  const ToursCard({Key key}) : super(key: key);
+  final TourModel tours;
+  ToursCard(this.tours);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/tours');
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ToursPage(tours),
+          ),
+        );
       },
       child: Container(
         width: 215,
@@ -46,7 +54,7 @@ class ToursCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Forest',
+                    tours.category.name,
                     style: secondaryTextStyle.copyWith(
                       fontSize: 12,
                     ),
@@ -55,18 +63,19 @@ class ToursCard extends StatelessWidget {
                     height: 6,
                   ),
                   Text(
-                    'HUTAN MANGROVE KARANGSONG',
+                    tours.name,
                     style: blackTextStyle.copyWith(
                       fontSize: 18,
                       fontWeight: semiBold,
                     ),
                     overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
                   ),
                   const SizedBox(
                     height: 6,
                   ),
                   Text(
-                    'Rp100.000',
+                    'Rp${tours.price}',
                     style: priceTextStyle.copyWith(
                       fontSize: 14,
                       fontWeight: medium,

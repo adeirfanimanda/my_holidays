@@ -1,7 +1,8 @@
+
 import 'package:my_holidays/models/category_model.dart';
 import 'package:my_holidays/models/gallery_model.dart';
 
-class ToursModel {
+class TourModel {
   int id;
   String name;
   double price;
@@ -12,7 +13,7 @@ class ToursModel {
   DateTime updatedAt;
   List<GalleryModel> galleries;
 
-  ToursModel({
+  TourModel({
     this.id,
     this.name,
     this.price,
@@ -24,7 +25,7 @@ class ToursModel {
     this.galleries,
   });
 
-  ToursModel.fromJson(Map<String, dynamic> json) {
+  TourModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     price = double.parse(json['price'].toString());
@@ -53,4 +54,4 @@ class ToursModel {
   }
 }
 
-class UninitializedProductModel extends ToursModel {}
+// class UninitializedProductModel extends TourModel {}
