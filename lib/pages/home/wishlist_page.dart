@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:my_holidays/providers/wishlist_provider.dart';
 import 'package:my_holidays/theme.dart';
 import 'package:my_holidays/widgets/wishlist_card.dart';
+import 'package:provider/provider.dart';
 
 class WishlistPage extends StatelessWidget {
   const WishlistPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    WishListProvider wishListProvider = Provider.of<WishListProvider>(context);
+
     Widget header() {
       return AppBar(
         backgroundColor: backgroundColor1,
@@ -54,7 +58,10 @@ class WishlistPage extends StatelessWidget {
               SizedBox(
                 height: 44,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, '/home', (route) => false);
+                  },
                   style: TextButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
@@ -88,11 +95,11 @@ class WishlistPage extends StatelessWidget {
             padding: EdgeInsets.symmetric(
               horizontal: defaultMargin,
             ),
-            children: [
-              WishlistCard(),
-              WishlistCard(),
-              WishlistCard(),
-            ],
+            children: wishListProvider.wishlist
+                .map(
+                  (tours) => WishlistCard(tours),
+                )
+                .toList(),
           ),
         ),
       );
@@ -101,8 +108,7 @@ class WishlistPage extends StatelessWidget {
     return Column(
       children: [
         header(),
-        // emptyWishlist(),
-        content(),
+        wishListProvider.wishlist.length == 0 ? emptyWishlist() : content(),
       ],
     );
   }

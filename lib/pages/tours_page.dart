@@ -1,7 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:my_holidays/models/tour_model.dart';
+import 'package:my_holidays/providers/wishlist_provider.dart';
 import 'package:my_holidays/theme.dart';
+import 'package:provider/provider.dart';
 
 class ToursPage extends StatefulWidget {
   final TourModel tours;
@@ -29,10 +31,11 @@ class _ToursPageState extends State<ToursPage> {
   ];
 
   int currentIndex = 0;
-  bool isWishlist = false;
 
   @override
   Widget build(BuildContext context) {
+    WishListProvider wishListProvider = Provider.of<WishListProvider>(context);
+
     Future<void> showSuccessDialog() async {
       return showDialog(
         context: context,
@@ -255,11 +258,9 @@ class _ToursPageState extends State<ToursPage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      setState(() {
-                        isWishlist = !isWishlist;
-                      });
+                      wishListProvider.setTours(widget.tours);
 
-                      if (isWishlist) {
+                      if (wishListProvider.isWishlist(widget.tours)) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             backgroundColor: secondaryColor,
@@ -282,7 +283,7 @@ class _ToursPageState extends State<ToursPage> {
                       }
                     },
                     child: Image.asset(
-                      isWishlist
+                      wishListProvider.isWishlist(widget.tours)
                           ? 'assets/button_wishlist_blue.png'
                           : 'assets/button_wishlist.png',
                       width: 46,

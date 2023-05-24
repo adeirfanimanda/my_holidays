@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:my_holidays/models/tour_model.dart';
+import 'package:provider/provider.dart';
+import '../providers/wishlist_provider.dart';
 import '../theme.dart';
 
 class WishlistCard extends StatelessWidget {
-  const WishlistCard({Key key}) : super(key: key);
+  final TourModel tours;
+  WishlistCard(this.tours);
 
   @override
   Widget build(BuildContext context) {
+    WishListProvider wishListProvider = Provider.of<WishListProvider>(context);
+
     return Container(
       margin: const EdgeInsets.only(
         top: 20,
@@ -39,20 +45,22 @@ class WishlistCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Hutan Mangrove',
+                  tours.name,
                   style: primaryTextStyle.copyWith(
                     fontWeight: semiBold,
                   ),
                 ),
                 Text(
-                  'Rp50.000',
+                  'Rp${tours.price}',
                   style: priceTextStyle,
                 ),
               ],
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              wishListProvider.setTours(tours);
+            },
             child: Image.asset(
               'assets/button_wishlist_blue.png',
               width: 34,
