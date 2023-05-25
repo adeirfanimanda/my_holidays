@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:my_holidays/models/cart_model.dart';
+import 'package:my_holidays/providers/cart_provider.dart';
 import 'package:my_holidays/theme.dart';
+import 'package:provider/provider.dart';
 
 class CartCard extends StatelessWidget {
-  const CartCard({Key key}) : super(key: key);
+  final CartModel cart;
+  CartCard(this.cart);
 
   @override
   Widget build(BuildContext context) {
+    CartProvider cartProvider = Provider.of<CartProvider>(context);
+
     return Container(
       margin: EdgeInsets.only(
         top: defaultMargin,
@@ -43,13 +49,13 @@ class CartCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Hutan Mangrove',
+                      cart.tours.name,
                       style: primaryTextStyle.copyWith(
                         fontWeight: semiBold,
                       ),
                     ),
                     Text(
-                      'Rp100.000',
+                      'Rp${cart.tours.price}',
                       style: priceTextStyle,
                     ),
                   ],
@@ -57,15 +63,20 @@ class CartCard extends StatelessWidget {
               ),
               Column(
                 children: [
-                  Image.asset(
-                    'assets/button_add.png',
-                    width: 16,
+                  GestureDetector(
+                    onTap: () {
+                      cartProvider.addQuantity(cart.id);
+                    },
+                    child: Image.asset(
+                      'assets/button_add.png',
+                      width: 16,
+                    ),
                   ),
                   const SizedBox(
                     height: 2,
                   ),
                   Text(
-                    '2',
+                    cart.quantity.toString(),
                     style: primaryTextStyle.copyWith(
                       fontWeight: medium,
                     ),
@@ -73,9 +84,14 @@ class CartCard extends StatelessWidget {
                   const SizedBox(
                     height: 2,
                   ),
-                  Image.asset(
-                    'assets/button_min.png',
-                    width: 16,
+                  GestureDetector(
+                    onTap: () {
+                      cartProvider.reduceQuantity(cart.id);
+                    },
+                    child: Image.asset(
+                      'assets/button_min.png',
+                      width: 16,
+                    ),
                   ),
                 ],
               ),
@@ -84,23 +100,28 @@ class CartCard extends StatelessWidget {
           const SizedBox(
             height: 12,
           ),
-          Row(
-            children: [
-              Image.asset(
-                'assets/icon_remove.png',
-                width: 10,
-              ),
-              const SizedBox(
-                width: 4,
-              ),
-              Text(
-                'Remove',
-                style: alertTextStyle.copyWith(
-                  fontSize: 12,
-                  fontWeight: light,
+          GestureDetector(
+            onTap: () {
+              cartProvider.removeCart(cart.id);
+            },
+            child: Row(
+              children: [
+                Image.asset(
+                  'assets/icon_remove.png',
+                  width: 10,
                 ),
-              ),
-            ],
+                const SizedBox(
+                  width: 4,
+                ),
+                Text(
+                  'Remove',
+                  style: alertTextStyle.copyWith(
+                    fontSize: 12,
+                    fontWeight: light,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

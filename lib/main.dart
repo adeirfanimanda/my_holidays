@@ -11,6 +11,7 @@ import 'package:my_holidays/pages/sign_up_page.dart';
 import 'package:my_holidays/pages/splash_page.dart';
 import 'package:my_holidays/pages/tours_page.dart';
 import 'package:my_holidays/providers/auth_provider.dart';
+import 'package:my_holidays/providers/cart_provider.dart';
 import 'package:my_holidays/providers/tour_provider.dart';
 import 'package:my_holidays/providers/wishlist_provider.dart';
 import 'package:my_holidays/services/auth_service.dart';
@@ -35,6 +36,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => WishListProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CartProvider(),
         ),
       ],
       child: MaterialApp(

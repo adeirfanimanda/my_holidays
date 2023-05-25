@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:my_holidays/models/tour_model.dart';
+import 'package:my_holidays/providers/cart_provider.dart';
 import 'package:my_holidays/providers/wishlist_provider.dart';
 import 'package:my_holidays/theme.dart';
 import 'package:provider/provider.dart';
@@ -35,6 +36,7 @@ class _ToursPageState extends State<ToursPage> {
   @override
   Widget build(BuildContext context) {
     WishListProvider wishListProvider = Provider.of<WishListProvider>(context);
+    CartProvider cartProvider = Provider.of<CartProvider>(context);
 
     Future<void> showSuccessDialog() async {
       return showDialog(
@@ -89,7 +91,9 @@ class _ToursPageState extends State<ToursPage> {
                     width: 154,
                     height: 44,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/cart');
+                      },
                       style: TextButton.styleFrom(
                         backgroundColor: primaryColor,
                         shape: RoundedRectangleBorder(
@@ -425,6 +429,7 @@ class _ToursPageState extends State<ToursPage> {
                         height: 54,
                         child: TextButton(
                           onPressed: () {
+                            cartProvider.addCart(widget.tours);
                             showSuccessDialog();
                           },
                           style: TextButton.styleFrom(

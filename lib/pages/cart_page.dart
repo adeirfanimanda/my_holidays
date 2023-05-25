@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:my_holidays/providers/cart_provider.dart';
 import 'package:my_holidays/theme.dart';
 import 'package:my_holidays/widgets/cart_card.dart';
+import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    CartProvider cartProvider = Provider.of<CartProvider>(context);
+
     Widget header() {
       return AppBar(
         backgroundColor: backgroundColor1,
@@ -80,9 +84,11 @@ class CartPage extends StatelessWidget {
         padding: EdgeInsets.symmetric(
           horizontal: defaultMargin,
         ),
-        children: const [
-          CartCard(),
-        ],
+        children: cartProvider.carts
+            .map(
+              (cart) => CartCard(cart),
+            )
+            .toList(),
       );
     }
 
@@ -103,7 +109,7 @@ class CartPage extends StatelessWidget {
                     style: primaryTextStyle,
                   ),
                   Text(
-                    'Rp100.000',
+                    'Rp${cartProvider.totalPrice()}',
                     style: priceTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: semiBold,
@@ -166,9 +172,9 @@ class CartPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor3,
       appBar: header(),
-      // body: emptyCart(),
-      body: content(),
-      bottomNavigationBar: customBottomNav(),
+      body: cartProvider.carts.length == 0 ? emptyCart() : content(),
+      bottomNavigationBar:
+          cartProvider.carts.length == 0 ? const SizedBox() : customBottomNav(),
     );
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_holidays/models/cart_model.dart';
 import 'package:my_holidays/models/tour_model.dart';
 
-class CardProvider with ChangeNotifier {
+class CartProvider with ChangeNotifier {
   List<CartModel> _carts = [];
 
   List<CartModel> get carts => _carts;
@@ -35,10 +35,7 @@ class CardProvider with ChangeNotifier {
   }
 
   addQuantity(int id) {
-    _carts[id].quantity--;
-    if (_carts[id].quantity == 0) {
-      _carts.removeAt(id);
-    }
+    _carts[id].quantity++;
     notifyListeners();
   }
 
