@@ -9,39 +9,42 @@ class DetailChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget header() {
       return PreferredSize(
-        preferredSize: const Size.fromHeight(70),
-        child: AppBar(
-          backgroundColor: backgroundColor1,
-          centerTitle: false,
-          title: Row(
-            children: [
-              Image.asset(
-                'assets/image_shop_logo_online.png',
-                width: 50,
-              ),
-              const SizedBox(
-                width: 12,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'My Holidays',
-                    style: primaryTextStyle.copyWith(
-                      fontWeight: medium,
-                      fontSize: 14,
+        preferredSize: const Size.fromHeight(80),
+        child: Container(
+          padding: const EdgeInsets.only(top: 12),
+          child: AppBar(
+            backgroundColor: backgroundColor1,
+            centerTitle: false,
+            title: Row(
+              children: [
+                Image.asset(
+                  'assets/image_shop_logo_online.png',
+                  width: 50,
+                ),
+                const SizedBox(
+                  width: 12,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'My Holidays',
+                      style: primaryTextStyle.copyWith(
+                        fontWeight: medium,
+                        fontSize: 14,
+                      ),
                     ),
-                  ),
-                  Text(
-                    'Online',
-                    style: secondaryTextStyle.copyWith(
-                      fontWeight: light,
-                      fontSize: 14,
+                    Text(
+                      'Online',
+                      style: secondaryTextStyle.copyWith(
+                        fontWeight: light,
+                        fontSize: 14,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       );

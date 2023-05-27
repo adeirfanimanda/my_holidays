@@ -31,7 +31,8 @@ class WishlistCard extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: Image.asset(
-              'assets/image_forest.jpeg',
+              'assets/6.jpg',
+              // tours.galleries[0].url,
               fit: BoxFit.cover,
               width: 60,
               height: 60,

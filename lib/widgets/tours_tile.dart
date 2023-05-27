@@ -29,9 +29,10 @@ class ToursTile extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.asset(
-                'assets/image_forest.jpeg',
-                width: 120,
-                height: 120,
+                'assets/6.jpg',
+                // tours.galleries[0].url,
+                width: 130,
+                height: 130,
                 fit: BoxFit.cover,
               ),
             ),

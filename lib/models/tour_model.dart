@@ -1,4 +1,3 @@
-
 import 'package:my_holidays/models/category_model.dart';
 import 'package:my_holidays/models/gallery_model.dart';
 

@@ -35,7 +35,8 @@ class CartCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   image: const DecorationImage(
                     image: AssetImage(
-                      'assets/image_forest.jpeg',
+                      // cart.tours.galleries[0].url,
+                      'assets/6.jpg',
                     ),
                     fit: BoxFit.cover,
                   ),

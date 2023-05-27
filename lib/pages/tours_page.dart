@@ -22,13 +22,11 @@ class _ToursPageState extends State<ToursPage> {
   ];
 
   List familiarTours = [
-    'assets/image_forest.jpeg',
-    'assets/image_forest.jpeg',
-    'assets/image_forest.jpeg',
-    'assets/image_forest.jpeg',
-    'assets/image_forest.jpeg',
-    'assets/image_forest.jpeg',
-    'assets/image_forest.jpeg',
+    'assets/2.jpeg',
+    'assets/3.jpeg',
+    'assets/4.jpeg',
+    'assets/5.jpeg',
+    'assets/6.jpg',
   ];
 
   int currentIndex = 0;
@@ -181,7 +179,7 @@ class _ToursPageState extends State<ToursPage> {
             ),
           ),
           CarouselSlider(
-            items: images
+            items: images // edit disini
                 .map(
                   (image) => Image.asset(
                     image,

@@ -52,11 +52,12 @@ class HomePage extends StatelessWidget {
               child: Container(
                 width: 54,
                 height: 54,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                    image: AssetImage(
-                      'assets/image_ade.jpg',
+                    image: NetworkImage(
+                      // 'assets/image_ade.jpg',
+                      user.profilePhotoUrl,
                     ),
                     fit: BoxFit.cover,
                   ),
@@ -112,27 +113,6 @@ class HomePage extends StatelessWidget {
                   color: transparentColor,
                 ),
                 child: Text(
-                  'Beach',
-                  style: subtitleTextStyle.copyWith(
-                    fontSize: 13,
-                    fontWeight: medium,
-                  ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 10,
-                ),
-                margin: const EdgeInsets.only(right: 16),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    color: subtitleColor,
-                  ),
-                  color: transparentColor,
-                ),
-                child: Text(
                   'Forest',
                   style: subtitleTextStyle.copyWith(
                     fontSize: 13,
@@ -154,7 +134,7 @@ class HomePage extends StatelessWidget {
                   color: transparentColor,
                 ),
                 child: Text(
-                  'Museum',
+                  'Beach',
                   style: subtitleTextStyle.copyWith(
                     fontSize: 13,
                     fontWeight: medium,
@@ -175,7 +155,7 @@ class HomePage extends StatelessWidget {
                   color: transparentColor,
                 ),
                 child: Text(
-                  'Mountain',
+                  'Waterpark',
                   style: subtitleTextStyle.copyWith(
                     fontSize: 13,
                     fontWeight: medium,
@@ -196,7 +176,7 @@ class HomePage extends StatelessWidget {
                   color: transparentColor,
                 ),
                 child: Text(
-                  'Swimming Pool',
+                  'Air Terjun',
                   style: subtitleTextStyle.copyWith(
                     fontSize: 13,
                     fontWeight: medium,

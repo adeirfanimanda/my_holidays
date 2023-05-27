@@ -37,7 +37,8 @@ class ToursCard extends StatelessWidget {
                 topRight: Radius.circular(20),
               ),
               child: Image.asset(
-                'assets/image_forest.jpeg',
+                'assets/6.jpg',
+                // tours.galleries[0].url,
                 width: 215,
                 height: 150,
                 fit: BoxFit.cover,
