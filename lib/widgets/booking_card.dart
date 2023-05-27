@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:my_holidays/models/cart_model.dart';
 import 'package:my_holidays/theme.dart';
 
 class BookingCard extends StatelessWidget {
-  const BookingCard({Key key}) : super(key: key);
+  final CartModel cart;
+  BookingCard(this.cart);
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +25,10 @@ class BookingCard extends StatelessWidget {
             height: 60,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              image: const DecorationImage(
+              image: DecorationImage(
                 image: AssetImage(
                   'assets/image_forest.jpeg',
+                  // cart.tours.galleries[0].url,
                 ),
                 fit: BoxFit.cover,
               ),
@@ -39,7 +42,7 @@ class BookingCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Hutan Mangrove Karangsong',
+                  cart.tours.name,
                   style: primaryTextStyle.copyWith(
                     fontWeight: semiBold,
                   ),
@@ -49,7 +52,7 @@ class BookingCard extends StatelessWidget {
                   height: 2,
                 ),
                 Text(
-                  'Rp100.000',
+                  'Rp${cart.tours.price}',
                   style: priceTextStyle,
                 ),
               ],
@@ -59,7 +62,7 @@ class BookingCard extends StatelessWidget {
             width: 12,
           ),
           Text(
-            '2 Items',
+            '${cart.quantity} Items',
             style: secondaryTextStyle.copyWith(
               fontSize: 12,
             ),

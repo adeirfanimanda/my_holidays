@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:my_holidays/providers/cart_provider.dart';
 import 'package:my_holidays/theme.dart';
 import 'package:my_holidays/widgets/booking_card.dart';
+import 'package:provider/provider.dart';
 
 class BookingPage extends StatelessWidget {
   const BookingPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    CartProvider cartProvider = Provider.of<CartProvider>(context);
+
     Widget header() {
       return AppBar(
         backgroundColor: backgroundColor1,
@@ -39,7 +43,13 @@ class BookingPage extends StatelessWidget {
                     fontWeight: medium,
                   ),
                 ),
-                const BookingCard(),
+                Column(
+                  children: cartProvider.carts
+                      .map(
+                        (cart) => BookingCard(cart),
+                      )
+                      .toList(),
+                ),
               ],
             ),
           ),
@@ -133,7 +143,7 @@ class BookingPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '2 Items',
+                      '${cartProvider.totalItems()} Items',
                       style: primaryTextStyle.copyWith(
                         fontWeight: medium,
                       ),
@@ -153,7 +163,7 @@ class BookingPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Rp200.000',
+                      'Rp${cartProvider.totalPrice()}',
                       style: primaryTextStyle.copyWith(
                         fontWeight: medium,
                       ),
@@ -173,7 +183,7 @@ class BookingPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Free',
+                      '76',
                       style: primaryTextStyle.copyWith(
                         fontWeight: medium,
                       ),
@@ -200,7 +210,7 @@ class BookingPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Rp200.000',
+                      'Rp${cartProvider.totalPrice() + 76}',
                       style: priceTextStyle.copyWith(
                         fontWeight: semiBold,
                       ),
