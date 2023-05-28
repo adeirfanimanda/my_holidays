@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_holidays/currency_formatter.dart';
 import 'package:my_holidays/models/tour_model.dart';
 import 'package:my_holidays/pages/tours_page.dart';
 import 'package:my_holidays/theme.dart';
@@ -36,9 +37,9 @@ class ToursCard extends StatelessWidget {
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
               ),
-              child: Image.asset(
-                'assets/6.jpg',
-                // tours.galleries[0].url,
+              child: Image.network(
+                // 'assets/6.jpg',
+                tours.galleries[0].url,
                 width: 215,
                 height: 150,
                 fit: BoxFit.cover,
@@ -76,7 +77,7 @@ class ToursCard extends StatelessWidget {
                     height: 6,
                   ),
                   Text(
-                    'Rp${tours.price}',
+                    formatCurrency(tours.price),
                     style: priceTextStyle.copyWith(
                       fontSize: 14,
                       fontWeight: medium,

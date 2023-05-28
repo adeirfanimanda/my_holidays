@@ -27,7 +27,7 @@ class TransactionService {
             .toList(),
         'status': "PENDING",
         'total_price': totalPrice,
-        'fee': 76,
+        'fee': 154,
       },
     );
 

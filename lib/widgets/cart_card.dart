@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_holidays/currency_formatter.dart';
 import 'package:my_holidays/models/cart_model.dart';
 import 'package:my_holidays/providers/cart_provider.dart';
 import 'package:my_holidays/theme.dart';
@@ -33,10 +34,10 @@ class CartCard extends StatelessWidget {
                 height: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  image: const DecorationImage(
-                    image: AssetImage(
-                      // cart.tours.galleries[0].url,
-                      'assets/6.jpg',
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      cart.tours.galleries[0].url,
+                      // 'assets/6.jpg',
                     ),
                     fit: BoxFit.cover,
                   ),
@@ -56,7 +57,7 @@ class CartCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Rp${cart.tours.price}',
+                      formatCurrency(cart.tours.price),
                       style: priceTextStyle,
                     ),
                   ],

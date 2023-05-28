@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:my_holidays/currency_formatter.dart';
 import 'package:my_holidays/models/tour_model.dart';
 import 'package:my_holidays/providers/cart_provider.dart';
 import 'package:my_holidays/providers/wishlist_provider.dart';
@@ -188,15 +189,15 @@ class _ToursPageState extends State<ToursPage> {
             height: 10,
           ),
           CarouselSlider(
-            items: images
+            items: widget.tours.galleries
                 .map(
                   (image) => Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 8), // Jarak antar gambar
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
-                      child: Image.asset(
-                        image,
+                      child: Image.network(
+                        image.url,
                         width: MediaQuery.of(context).size.width,
                         height: 379,
                         fit: BoxFit.cover,
@@ -219,7 +220,7 @@ class _ToursPageState extends State<ToursPage> {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: images.map(
+            children: widget.tours.galleries.map(
               (e) {
                 index++;
                 return indicator(index);
@@ -396,7 +397,8 @@ class _ToursPageState extends State<ToursPage> {
                     style: primaryTextStyle,
                   ),
                   Text(
-                    'Rp${widget.tours.price}',
+                    // 'Rp${widget.tours.price}',
+                    formatCurrency(widget.tours.price),
                     style: priceTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: semiBold,

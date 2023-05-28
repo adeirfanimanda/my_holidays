@@ -26,8 +26,9 @@ class ProfilePage extends StatelessWidget {
             child: Row(
               children: [
                 ClipOval(
-                  child: Image.asset(
-                    'assets/image_ade.jpg',
+                  child: Image.network(
+                    user.profilePhotoUrl,
+                    // 'assets/image_ade.jpg',
                     width: 64,
                   ),
                 ),

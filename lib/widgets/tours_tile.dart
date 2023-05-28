@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_holidays/models/tour_model.dart';
 import 'package:my_holidays/pages/tours_page.dart';
 import 'package:my_holidays/theme.dart';
+import 'package:my_holidays/currency_formatter.dart';
 
 class ToursTile extends StatelessWidget {
   final TourModel tours;
@@ -28,9 +29,9 @@ class ToursTile extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: Image.asset(
-                'assets/6.jpg',
-                // tours.galleries[0].url,
+              child: Image.network(
+                // 'assets/6.jpg',
+                tours.galleries[0].url,
                 width: 130,
                 height: 130,
                 fit: BoxFit.cover,
@@ -64,7 +65,7 @@ class ToursTile extends StatelessWidget {
                     height: 6,
                   ),
                   Text(
-                    'Rp${tours.price}',
+                    formatCurrency(tours.price),
                     style: priceTextStyle.copyWith(
                       fontWeight: medium,
                     ),

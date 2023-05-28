@@ -147,11 +147,13 @@ class EditProfilePage extends StatelessWidget {
               width: 100,
               height: 100,
               margin: EdgeInsets.only(top: defaultMargin),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
-                  image: AssetImage(
-                    'assets/image_ade.jpg',
+                  fit: BoxFit.fill,
+                  image: NetworkImage(
+                    user.profilePhotoUrl,
+                    // 'assets/image_ade.jpg',
                   ),
                 ),
               ),

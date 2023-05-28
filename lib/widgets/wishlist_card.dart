@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_holidays/currency_formatter.dart';
 import 'package:my_holidays/models/tour_model.dart';
 import 'package:provider/provider.dart';
 import '../providers/wishlist_provider.dart';
@@ -30,9 +31,9 @@ class WishlistCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.asset(
-              'assets/6.jpg',
-              // tours.galleries[0].url,
+            child: Image.network(
+              // 'assets/6.jpg',
+              tours.galleries[0].url,
               fit: BoxFit.cover,
               width: 60,
               height: 60,
@@ -52,7 +53,7 @@ class WishlistCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Rp${tours.price}',
+                  formatCurrency(tours.price),
                   style: priceTextStyle,
                 ),
               ],

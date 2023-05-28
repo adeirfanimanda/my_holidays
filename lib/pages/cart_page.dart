@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_holidays/currency_formatter.dart';
 import 'package:my_holidays/providers/cart_provider.dart';
 import 'package:my_holidays/theme.dart';
 import 'package:my_holidays/widgets/cart_card.dart';
@@ -109,7 +110,7 @@ class CartPage extends StatelessWidget {
                     style: primaryTextStyle,
                   ),
                   Text(
-                    'Rp${cartProvider.totalPrice()}',
+                    formatCurrency(cartProvider.totalPrice()),
                     style: priceTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: semiBold,

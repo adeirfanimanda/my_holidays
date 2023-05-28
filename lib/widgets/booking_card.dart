@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_holidays/currency_formatter.dart';
 import 'package:my_holidays/models/cart_model.dart';
 import 'package:my_holidays/theme.dart';
 
@@ -26,9 +27,9 @@ class BookingCard extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               image: DecorationImage(
-                image: AssetImage(
-                  'assets/image_forest.jpeg',
-                  // cart.tours.galleries[0].url,
+                image: NetworkImage(
+                  // 'assets/image_forest.jpeg',
+                  cart.tours.galleries[0].url,
                 ),
                 fit: BoxFit.cover,
               ),
@@ -52,7 +53,7 @@ class BookingCard extends StatelessWidget {
                   height: 2,
                 ),
                 Text(
-                  'Rp${cart.tours.price}',
+                  formatCurrency(cart.tours.price),
                   style: priceTextStyle,
                 ),
               ],

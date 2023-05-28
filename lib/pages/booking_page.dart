@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_holidays/currency_formatter.dart';
 import 'package:my_holidays/providers/auth_provider.dart';
 import 'package:my_holidays/providers/cart_provider.dart';
 import 'package:my_holidays/providers/transaction_provider.dart';
@@ -288,7 +289,7 @@ class _BookingPageState extends State<BookingPage> {
                       ),
                     ),
                     Text(
-                      'Rp${cartProvider.totalPrice()}',
+                      formatCurrency(cartProvider.totalPrice()),
                       style: primaryTextStyle.copyWith(
                         fontWeight: medium,
                       ),
@@ -308,7 +309,7 @@ class _BookingPageState extends State<BookingPage> {
                       ),
                     ),
                     Text(
-                      '76',
+                      '154',
                       style: primaryTextStyle.copyWith(
                         fontWeight: medium,
                       ),
@@ -335,7 +336,7 @@ class _BookingPageState extends State<BookingPage> {
                       ),
                     ),
                     Text(
-                      'Rp${cartProvider.totalPrice() + 76}',
+                      formatCurrency(cartProvider.totalPrice() + 154),
                       style: priceTextStyle.copyWith(
                         fontWeight: semiBold,
                       ),
