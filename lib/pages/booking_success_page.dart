@@ -10,7 +10,7 @@ class BookingSuccessPage extends StatelessWidget {
       return AppBar(
         backgroundColor: backgroundColor1,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Booking Success',
         ),
         elevation: 0,
@@ -30,7 +30,7 @@ class BookingSuccessPage extends StatelessWidget {
               height: 20,
             ),
             Text(
-              'You made a transaction',
+              'You made a booking',
               style: primaryTextStyle.copyWith(
                 fontSize: 16,
                 fontWeight: medium,
@@ -62,7 +62,7 @@ class BookingSuccessPage extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  'Order Other Tours',
+                  'Book Other Tours',
                   style: primaryTextStyle.copyWith(
                     fontSize: 16,
                     fontWeight: medium,
@@ -73,23 +73,23 @@ class BookingSuccessPage extends StatelessWidget {
             Container(
               width: 196,
               height: 44,
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 top: 12,
               ),
               child: TextButton(
                 onPressed: () {},
                 style: TextButton.styleFrom(
-                  backgroundColor: Color(0xff39374B),
+                  backgroundColor: const Color(0xff39374B),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
                 child: Text(
-                  'View My Other',
+                  'View My Booking',
                   style: primaryTextStyle.copyWith(
                     fontSize: 16,
                     fontWeight: medium,
-                    color: Color(0xffB7B6BF),
+                    color: const Color(0xffB7B6BF),
                   ),
                 ),
               ),

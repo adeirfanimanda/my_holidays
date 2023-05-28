@@ -110,6 +110,7 @@ class DetailChatPage extends StatelessWidget {
 
     Widget chatInput() {
       return Container(
+        padding: MediaQuery.of(context).viewInsets,
         margin: const EdgeInsets.all(20),
         child: Column(
           mainAxisSize: MainAxisSize.min,

@@ -17,8 +17,8 @@ class ToursPage extends StatefulWidget {
 class _ToursPageState extends State<ToursPage> {
   List images = [
     'assets/image_forest.jpeg',
-    'assets/image_forest.jpeg',
-    'assets/image_forest.jpeg',
+    'assets/3.jpeg',
+    'assets/6.jpg',
   ];
 
   List familiarTours = [
@@ -166,37 +166,51 @@ class _ToursPageState extends State<ToursPage> {
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: const Icon(
+                    child: Icon(
                       Icons.chevron_left,
+                      color: backgroundColor6,
                     ),
                   ),
-                  Icon(
-                    Icons.shopping_bag,
-                    color: backgroundColor1,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/cart');
+                    },
+                    child: Icon(
+                      Icons.shopping_bag,
+                      color: backgroundColor6,
+                    ),
                   ),
                 ],
               ),
             ),
           ),
+          const SizedBox(
+            height: 10,
+          ),
           CarouselSlider(
-            items: images // edit disini
+            items: images
                 .map(
-                  (image) => Image.asset(
-                    image,
-                    width: MediaQuery.of(context).size.width,
-                    height: 379,
-                    fit: BoxFit.cover,
+                  (image) => Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8), // Jarak antar gambar
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        image,
+                        width: MediaQuery.of(context).size.width,
+                        height: 379,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                 )
                 .toList(),
             options: CarouselOptions(
               initialPage: 0,
               onPageChanged: (index, reason) {
-                setState(
-                  () {
-                    currentIndex = index;
-                  },
-                );
+                setState(() {
+                  currentIndex = index;
+                });
               },
             ),
           ),
@@ -215,6 +229,73 @@ class _ToursPageState extends State<ToursPage> {
         ],
       );
     }
+
+    //   return Column(
+    //     children: [
+    //       ClipRRect(
+    //         borderRadius: BorderRadius.circular(20),
+    //         child: Container(
+    //           margin: EdgeInsets.only(
+    //             top: 20,
+    //             left: defaultMargin,
+    //             right: defaultMargin,
+    //           ),
+    //           child: Row(
+    //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //             children: [
+    //               GestureDetector(
+    //                 onTap: () {
+    //                   Navigator.pop(context);
+    //                 },
+    //                 child: const Icon(
+    //                   Icons.chevron_left,
+    //                 ),
+    //               ),
+    //               Icon(
+    //                 Icons.shopping_bag,
+    //                 color: backgroundColor1,
+    //               ),
+    //             ],
+    //           ),
+    //         ),
+    //       ),
+    //       CarouselSlider(
+    //         items: images // edit disini
+    //             .map(
+    //               (image) => Image.asset(
+    //                 image,
+    //                 width: MediaQuery.of(context).size.width,
+    //                 height: 379,
+    //                 fit: BoxFit.cover,
+    //               ),
+    //             )
+    //             .toList(),
+    //         options: CarouselOptions(
+    //           initialPage: 0,
+    //           onPageChanged: (index, reason) {
+    //             setState(
+    //               () {
+    //                 currentIndex = index;
+    //               },
+    //             );
+    //           },
+    //         ),
+    //       ),
+    //       const SizedBox(
+    //         height: 20,
+    //       ),
+    //       Row(
+    //         mainAxisAlignment: MainAxisAlignment.center,
+    //         children: images.map(
+    //           (e) {
+    //             index++;
+    //             return indicator(index);
+    //           },
+    //         ).toList(),
+    //       ),
+    //     ],
+    //   );
+    // }
 
     Widget content() {
       int index = -1;
@@ -305,13 +386,13 @@ class _ToursPageState extends State<ToursPage> {
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: backgroundColor2,
-                borderRadius: BorderRadius.circular(4),
+                borderRadius: BorderRadius.circular(12),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Price starts from',
+                    'Ticket Price',
                     style: primaryTextStyle,
                   ),
                   Text(
@@ -456,7 +537,7 @@ class _ToursPageState extends State<ToursPage> {
     }
 
     return Scaffold(
-      backgroundColor: backgroundColor6,
+      backgroundColor: backgroundColor3,
       body: ListView(
         children: [
           header(),
