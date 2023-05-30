@@ -13,6 +13,68 @@ class ProfilePage extends StatelessWidget {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     UserModel user = authProvider.user;
 
+    Future<void> showInformationDialog() async {
+      return showDialog(
+        context: context,
+        builder: (BuildContext context) => SizedBox(
+          width: MediaQuery.of(context).size.width - (2 * defaultMargin),
+          child: AlertDialog(
+            backgroundColor: backgroundColor3,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            content: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    'Information',
+                    style: primaryTextStyle.copyWith(
+                      fontSize: 18,
+                      fontWeight: semiBold,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  Text(
+                    'This Feature is Under Development',
+                    style: secondaryTextStyle.copyWith(
+                      fontSize: 15,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    width: 150,
+                    height: 40,
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      style: TextButton.styleFrom(
+                        backgroundColor: primaryColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: Text(
+                        'OK',
+                        style: primaryTextStyle.copyWith(
+                          fontSize: 16,
+                          fontWeight: medium,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
     Widget header() {
       return AppBar(
         backgroundColor: backgroundColor1,
@@ -118,8 +180,13 @@ class ProfilePage extends StatelessWidget {
               menuItem(
                 'Your Booking',
               ),
-              menuItem(
-                'Help',
+              GestureDetector(
+                onTap: () {
+                  showInformationDialog();
+                },
+                child: menuItem(
+                  'Help',
+                ),
               ),
               const SizedBox(
                 height: 30,
@@ -131,14 +198,29 @@ class ProfilePage extends StatelessWidget {
                   fontWeight: semiBold,
                 ),
               ),
-              menuItem(
-                'Privacy & Policy',
+              GestureDetector(
+                onTap: () {
+                  showInformationDialog();
+                },
+                child: menuItem(
+                  'Privacy & Policy',
+                ),
               ),
-              menuItem(
-                'Term of service',
+              GestureDetector(
+                onTap: () {
+                  showInformationDialog();
+                },
+                child: menuItem(
+                  'Term of service',
+                ),
               ),
-              menuItem(
-                'Rate App',
+              GestureDetector(
+                onTap: () {
+                  showInformationDialog();
+                },
+                child: menuItem(
+                  'Rate App',
+                ),
               ),
               GestureDetector(
                 onTap: () {
