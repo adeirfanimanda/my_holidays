@@ -40,7 +40,7 @@ class BookingSuccessPage extends StatelessWidget {
               height: 12,
             ),
             Text(
-              'Stay at home while we\nprepare your dream tours',
+              'Show E-Ticket to\nthe tour guard',
               style: secondaryTextStyle,
               textAlign: TextAlign.center,
             ),
@@ -62,7 +62,7 @@ class BookingSuccessPage extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  'Book Other Tours',
+                  'Booking Other Tours',
                   style: primaryTextStyle.copyWith(
                     fontSize: 16,
                     fontWeight: medium,

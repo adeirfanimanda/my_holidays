@@ -169,16 +169,17 @@ class _ToursPageState extends State<ToursPage> {
                     },
                     child: Icon(
                       Icons.chevron_left,
-                      color: backgroundColor6,
+                      color: backgroundColor1,
                     ),
                   ),
                   GestureDetector(
                     onTap: () {
                       Navigator.pushNamed(context, '/cart');
                     },
-                    child: Icon(
-                      Icons.shopping_bag,
-                      color: backgroundColor6,
+                    child: Image.asset(
+                      'assets/icon_cart.png',
+                      width: 20,
+                      color: backgroundColor3,
                     ),
                   ),
                 ],
@@ -230,73 +231,6 @@ class _ToursPageState extends State<ToursPage> {
         ],
       );
     }
-
-    //   return Column(
-    //     children: [
-    //       ClipRRect(
-    //         borderRadius: BorderRadius.circular(20),
-    //         child: Container(
-    //           margin: EdgeInsets.only(
-    //             top: 20,
-    //             left: defaultMargin,
-    //             right: defaultMargin,
-    //           ),
-    //           child: Row(
-    //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //             children: [
-    //               GestureDetector(
-    //                 onTap: () {
-    //                   Navigator.pop(context);
-    //                 },
-    //                 child: const Icon(
-    //                   Icons.chevron_left,
-    //                 ),
-    //               ),
-    //               Icon(
-    //                 Icons.shopping_bag,
-    //                 color: backgroundColor1,
-    //               ),
-    //             ],
-    //           ),
-    //         ),
-    //       ),
-    //       CarouselSlider(
-    //         items: images // edit disini
-    //             .map(
-    //               (image) => Image.asset(
-    //                 image,
-    //                 width: MediaQuery.of(context).size.width,
-    //                 height: 379,
-    //                 fit: BoxFit.cover,
-    //               ),
-    //             )
-    //             .toList(),
-    //         options: CarouselOptions(
-    //           initialPage: 0,
-    //           onPageChanged: (index, reason) {
-    //             setState(
-    //               () {
-    //                 currentIndex = index;
-    //               },
-    //             );
-    //           },
-    //         ),
-    //       ),
-    //       const SizedBox(
-    //         height: 20,
-    //       ),
-    //       Row(
-    //         mainAxisAlignment: MainAxisAlignment.center,
-    //         children: images.map(
-    //           (e) {
-    //             index++;
-    //             return indicator(index);
-    //           },
-    //         ).toList(),
-    //       ),
-    //     ],
-    //   );
-    // }
 
     Widget content() {
       int index = -1;
@@ -439,7 +373,7 @@ class _ToursPageState extends State<ToursPage> {
               ),
             ),
 
-            // familiar tours
+            // other tours
             Container(
               width: double.infinity,
               margin: EdgeInsets.only(
@@ -453,7 +387,7 @@ class _ToursPageState extends State<ToursPage> {
                       horizontal: defaultMargin,
                     ),
                     child: Text(
-                      'Familiar Tours',
+                      'Other Tours',
                       style: primaryTextStyle.copyWith(
                         fontWeight: medium,
                       ),
@@ -539,7 +473,7 @@ class _ToursPageState extends State<ToursPage> {
     }
 
     return Scaffold(
-      backgroundColor: backgroundColor3,
+      backgroundColor: backgroundColor7,
       body: ListView(
         children: [
           header(),

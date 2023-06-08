@@ -6,6 +6,7 @@ import 'package:my_holidays/pages/detail_chat_page.dart';
 import 'package:my_holidays/pages/home/edit_profile_page.dart';
 import 'package:my_holidays/pages/home/main_page.dart';
 import 'package:my_holidays/pages/onboarding_page.dart';
+import 'package:my_holidays/pages/payment_page.dart';
 import 'package:my_holidays/pages/sign_in_page.dart';
 import 'package:my_holidays/pages/sign_up_page.dart';
 import 'package:my_holidays/pages/splash_page.dart';
@@ -57,6 +58,7 @@ class MyApp extends StatelessWidget {
           '/edit-profile': (context) => const EditProfilePage(),
           '/cart': (context) => const CartPage(),
           '/booking': (context) => const BookingPage(),
+          '/payment': (context) => const PaymentPage(),
           '/booking-success': (context) => const BookingSuccessPage(),
         },
       ),

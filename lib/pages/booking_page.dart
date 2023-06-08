@@ -40,7 +40,7 @@ class _BookingPageState extends State<BookingPage> {
       )) {
         cartProvider.carts = [];
         Navigator.pushNamedAndRemoveUntil(
-            context, '/booking-success', (route) => false);
+            context, '/payment', (route) => false);
       }
 
       setState(() {
@@ -74,7 +74,7 @@ class _BookingPageState extends State<BookingPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'List Items',
+                  'List Ticket',
                   style: primaryTextStyle.copyWith(
                     fontSize: 16,
                     fontWeight: medium,
@@ -131,7 +131,11 @@ class _BookingPageState extends State<BookingPage> {
                       },
                       builder: (BuildContext context, Widget child) {
                         return Theme(
-                          data: ThemeData.light(),
+                          data: ThemeData.light().copyWith(
+                            colorScheme: ColorScheme.light(
+                              primary: backgroundColor4,
+                            ),
+                          ),
                           child: child,
                         );
                       },
@@ -185,57 +189,6 @@ class _BookingPageState extends State<BookingPage> {
             ),
           ),
 
-          // Container(
-          //   margin: const EdgeInsets.only(top: 20),
-          //   child: Column(
-          //     crossAxisAlignment: CrossAxisAlignment.start,
-          //     children: [
-          //       Text(
-          //         'Choosen Holiday Date',
-          //         style: primaryTextStyle.copyWith(
-          //           fontSize: 16,
-          //           fontWeight: medium,
-          //         ),
-          //       ),
-          //       const SizedBox(
-          //         height: 12,
-          //       ),
-          //       Container(
-          //         height: 50,
-          //         padding: const EdgeInsets.symmetric(
-          //           horizontal: 16,
-          //         ),
-          //         decoration: BoxDecoration(
-          //           color: backgroundColor4,
-          //           borderRadius: BorderRadius.circular(12),
-          //         ),
-          //         child: Center(
-          //           child: Row(
-          //             children: [
-          //               Image.asset(
-          //                 'assets/icon_username.png',
-          //                 width: 17,
-          //               ),
-          //               const SizedBox(
-          //                 width: 16,
-          //               ),
-          //               Expanded(
-          //                 child: TextFormField(
-          //                   style: primaryTextStyle,
-          //                   decoration: InputDecoration.collapsed(
-          //                     hintText: 'DD/MM/YYYY',
-          //                     hintStyle: subtitleTextStyle,
-          //                   ),
-          //                 ),
-          //               ),
-          //             ],
-          //           ),
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
-
           // payment summary
           Container(
             margin: EdgeInsets.only(
@@ -269,7 +222,7 @@ class _BookingPageState extends State<BookingPage> {
                       ),
                     ),
                     Text(
-                      '${cartProvider.totalItems()} Items',
+                      '${cartProvider.totalItems()} Ticket',
                       style: primaryTextStyle.copyWith(
                         fontWeight: medium,
                       ),
@@ -357,10 +310,10 @@ class _BookingPageState extends State<BookingPage> {
           ),
           isLoading
               ? Container(
-                  margin: EdgeInsets.only(
+                  margin: const EdgeInsets.only(
                     bottom: 30,
                   ),
-                  child: LoadingButton(),
+                  child: const LoadingButton(),
                 )
               : Container(
                   height: 50,

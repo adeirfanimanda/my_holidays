@@ -16,7 +16,7 @@ class WishlistPage extends StatelessWidget {
         backgroundColor: backgroundColor1,
         centerTitle: true,
         title: const Text(
-          'Favorite Tours',
+          'Wishlist Tours',
         ),
         elevation: 0,
         automaticallyImplyLeading: false,
@@ -49,7 +49,7 @@ class WishlistPage extends StatelessWidget {
                 height: 12,
               ),
               Text(
-                'Let\'s find your favorite tours',
+                'Let\'s find your dream tours',
                 style: secondaryTextStyle,
               ),
               const SizedBox(

@@ -10,8 +10,8 @@ class BookingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 12),
-      padding: EdgeInsets.symmetric(
+      margin: const EdgeInsets.only(top: 12),
+      padding: const EdgeInsets.symmetric(
         vertical: 20,
         horizontal: 12,
       ),
@@ -63,7 +63,7 @@ class BookingCard extends StatelessWidget {
             width: 12,
           ),
           Text(
-            '${cart.quantity} Items',
+            '${cart.quantity} Ticket',
             style: secondaryTextStyle.copyWith(
               fontSize: 12,
             ),

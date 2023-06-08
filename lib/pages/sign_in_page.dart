@@ -271,7 +271,7 @@ class _SignInPageState extends State<SignInPage> {
               header(),
               emailInput(),
               passwordInput(),
-              isLoading ? LoadingButton() : signInButton(),
+              isLoading ? const LoadingButton() : signInButton(),
               const Spacer(),
               footer()
             ],

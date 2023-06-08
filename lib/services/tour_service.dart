@@ -4,7 +4,7 @@ import 'package:my_holidays/models/tour_model.dart';
 
 class TourService {
   String baseUrl = 'http://192.168.56.1:8000/api';
-  // String baseUrl = 'https://shamo-backend.buildwithangga.id/api';
+  // String baseUrl = 'http://10.0.143.19:8000/api';
 
   Future<List<TourModel>> getTours() async {
     var url = '$baseUrl/tours';

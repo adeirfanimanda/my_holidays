@@ -5,7 +5,7 @@ import '../models/cart_model.dart';
 
 class TransactionService {
   String baseUrl = 'http://192.168.56.1:8000/api';
-  // String baseUrl = 'https://shamo-backend.buildwithangga.id/api';
+  // String baseUrl = 'http://10.0.143.19:8000/api';
 
   Future<bool> booking(
       String token, List<CartModel> carts, double totalPrice) async {
